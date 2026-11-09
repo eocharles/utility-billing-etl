@@ -1,0 +1,187 @@
+======================================================================
+TABLE: customers   (2,120 rows, 11 columns)
+======================================================================
+Exact duplicate rows: 0
+Rows sharing a CUST_ID with another row: 240 (extra copies: 120)
+
+-- Blank / distinct counts per column --
+column           blank  distinct
+CUST_ID              0     2,000
+ACCT_NO             40     1,962
+FULL_NAME            0     2,066
+PHONE                0     2,120
+EMAIL              339     1,671
+SVC_ADDR             0     2,000
+CITY                 0        10
+PROV                 0        13
+POSTAL               0     2,000
+STATUS               0         7
+OPEN_DT              0     1,898
+
+-- Values in PROV --
+  'PE'                          348
+  'NS'                          328
+  'NB'                          318
+  'P.E.I.'                      140
+  'Prince Edward Island'        137
+  'pe'                          117
+  'PEI'                         114
+  'N.B.'                        113
+  'Nova Scotia'                 111
+  'N.S.'                        107
+  'nb'                           99
+  'New Brunswick'                94
+  'ns'                           94
+
+-- Values in STATUS --
+  'A'                           526
+  'Active'                      290
+  'C'                           273
+  'CLOSED'                      270
+  'ACTIVE'                      259
+  'I'                           258
+  'INACTIVE'                    244
+
+-- Values in CITY --
+  'Saint John'                  236
+  'Stratford'                   231
+  'Halifax'                     224
+  'Charlottetown'               220
+  'Sydney'                      209
+  'Summerside'                  208
+  'Dartmouth'                   207
+  'Cornwall'                    197
+  'Moncton'                     194
+  'Fredericton'                 194
+
+-- Formats (shapes) in ACCT_NO --
+  'AA-999999'                   2,080   e.g. 'WA-100813'
+  ''                               24   e.g. ''
+  ' '                              16   e.g. ' '
+
+-- Formats (shapes) in PHONE --
+  '9999999999'                    432   e.g. '9028497992'
+  '999.999.9999'                  430   e.g. '902.783.1496'
+  '+9 999 999 9999'               428   e.g. '+1 902 682 9954'
+  '(999) 999-9999'                427   e.g. '(902) 339-9579'
+  '999-999-9999'                  403   e.g. '902-513-9571'
+
+-- Formats (shapes) in POSTAL --
+  'A9A9A9'                        734   e.g. 'G0M8X8'
+  'A9A 9A9'                       699   e.g. 'N7P 9C7'
+  'a9a 9a9'                       687   e.g. 'y1b 5a9'
+
+-- Formats (shapes) in OPEN_DT --
+  '99-Aaa-9999'                   713   e.g. '12-May-2024'
+  '9999-99-99'                    704   e.g. '2011-02-04'
+  '99/99/9999'                    703   e.g. '02/21/2008'
+
+======================================================================
+TABLE: meters   (2,500 rows, 5 columns)
+======================================================================
+Exact duplicate rows: 0
+Rows sharing a METER_ID with another row: 0 (extra copies: 0)
+
+-- Blank / distinct counts per column --
+column           blank  distinct
+METER_ID             0     2,500
+CUST_ID              0     1,354
+METER_TYPE           0         8
+INSTALL_DT           0     2,339
+STATUS               0         6
+
+-- Values in METER_TYPE --
+  'GAS'                         536
+  'ELEC'                        428
+  'WATER'                       405
+  'gas'                         284
+  'WTR'                         237
+  'ELECTRIC'                    217
+  'water'                       197
+  'electric'                    196
+
+-- Values in STATUS --
+  'RETIRED'                     453
+  'I'                           438
+  'Active'                      413
+  'INACTIVE'                    411
+  'A'                           394
+  'ACTIVE'                      391
+
+-- Formats (shapes) in INSTALL_DT --
+  '99/99/9999'                    872   e.g. '08/07/2024'
+  '99-Aaa-9999'                   829   e.g. '16-Apr-2021'
+  '9999-99-99'                    799   e.g. '2022-06-06'
+
+======================================================================
+TABLE: bills   (10,000 rows, 8 columns)
+======================================================================
+Exact duplicate rows: 0
+Rows sharing a BILL_ID with another row: 0 (extra copies: 0)
+
+-- Blank / distinct counts per column --
+column           blank  distinct
+BILL_ID              0    10,000
+METER_ID             0     2,554
+PERIOD_START         0       108
+PERIOD_END           0       108
+BILL_DT              0       108
+USAGE                0     7,917
+AMT_BILLED          30     7,835
+AMT_PAID           500     7,712
+
+-- Formats (shapes) in PERIOD_START --
+  '99-Aaa-9999'                 3,346   e.g. '22-Oct-2024'
+  '9999-99-99'                  3,345   e.g. '2023-10-28'
+  '99/99/9999'                  3,309   e.g. '02/19/2025'
+
+-- Formats (shapes) in PERIOD_END --
+  '99/99/9999'                  3,397   e.g. '03/20/2025'
+  '9999-99-99'                  3,316   e.g. '2025-03-20'
+  '99-Aaa-9999'                 3,287   e.g. '20-Nov-2024'
+
+-- Formats (shapes) in BILL_DT --
+  '99-Aaa-9999'                 3,413   e.g. '23-Nov-2024'
+  '9999-99-99'                  3,335   e.g. '2025-03-23'
+  '99/99/9999'                  3,252   e.g. '03/23/2025'
+
+-- Formats (shapes) in AMT_BILLED --
+  '999.99'                      4,454   e.g. '145.50'
+  '99.99'                       2,856   e.g. '77.40'
+  '$999.99'                     1,522   e.g. '$122.48'
+  '$99.99'                        891   e.g. '$43.99'
+  '999.9'                         138   e.g. '198.2'
+  '99.9'                           81   e.g. '57.9'
+  ''                               30   e.g. ''
+  '999'                            14   e.g. '110'
+  '99'                             14   e.g. '89'
+
+-- Formats (shapes) in AMT_PAID --
+  '999.99'                      3,991   e.g. '122.48'
+  '99.99'                       2,826   e.g. '69.55'
+  '$999.99'                     1,342   e.g. '$157.77'
+  '$99.99'                        998   e.g. '$48.02'
+  ''                              500   e.g. ''
+  '999.9'                         147   e.g. '147.1'
+  '99.9'                           97   e.g. '77.4'
+  '9.99'                           59   e.g. '5.71'
+  '$9.99'                          18   e.g. '$0.96'
+  '999'                            12   e.g. '137'
+  '99'                             10   e.g. '45'
+
+======================================================================
+RELATIONSHIP CHECKS
+======================================================================
+Meters whose CUST_ID is not in customers: 60
+   examples: ['C921207', 'C972793', 'C930348']
+Bills whose METER_ID is not in meters:     150
+   examples: ['M964541', 'M983278', 'M915792']
+Customers with no meters (not necessarily a problem): 749
+
+======================================================================
+AMBIGUOUS DATE CHECK (values shaped 99/99/9999)
+======================================================================
+Slash-format dates checked: 11,533
+  first number > 12 (must be a day, so DD/MM): 0
+  second number > 12 (must be a day, so MM/DD): 9,799
+  If only one of the two is non-zero, that is the order. Confirm with the source system owner.
