@@ -76,3 +76,7 @@ Python, pandas, SQL, MySQL, SQLAlchemy
 - Rejected rows go to `output/rejects.csv` with the table name, source key and a reason code. Nothing is silently dropped.
 - Loading order is `customers`, then `meters`, then `bills`, because of the foreign keys.
 - Rejects cascade down the chain: a meter is checked against the customers that actually loaded, and a bill against the meters that actually loaded.
+
+
+
+Date handling: Dates arrive in three formats. parse_dates matches each value to a format by pattern and parses it with that explicit format, never auto-detecting. Slash dates are MM/DD/YYYY, verified during profiling. Values matching no format are rejected as BAD_DATE with the original text logged.
