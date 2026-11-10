@@ -1,0 +1,38 @@
+==================================================================
+table         in file   loaded   merged  rejected  warnings
+==================================================================
+customers       2,120    1,960      120        40         0
+meters          2,500    2,440        0        60         0
+bills          10,000    9,820        0       180         0
+
+Rows by reason:
+  bills     REJECT  MISSING_AMOUNT            30
+  bills     REJECT  ORPHAN_METER             150
+  customers MERGE   MERGED_DUPLICATE         120
+  customers REJECT  MISSING_ACCT_NO           40
+  meters    REJECT  ORPHAN_CUSTOMER           60
+
+Loaded: 1,960 customers, 2,440 meters, 9,820 bills
+
+==============================================================================
+RECONCILIATION
+==============================================================================
+[PASS] customers: rows in file = loaded + merged + rejected
+[PASS] customers: rows in MySQL = rows the transform produced
+[PASS] meters: rows in file = loaded + merged + rejected
+[PASS] meters: rows in MySQL = rows the transform produced
+[PASS] bills: rows in file = loaded + merged + rejected
+[PASS] bills: rows in MySQL = rows the transform produced
+[PASS] bills: total billed in file = loaded + rejected
+        expected 1,182,039.42   actual 1,182,039.42
+[PASS] bills: total paid in file   = loaded + rejected
+        expected 1,079,121.32   actual 1,079,121.32
+[PASS] meters pointing at a missing customer
+[PASS] bills pointing at a missing meter
+[PASS] customers: loaded = answer key (synthetic data only)
+[PASS] meters: loaded = answer key (synthetic data only)
+[PASS] bills: loaded = answer key (synthetic data only)
+
+13 of 13 checks passed.
+
+Stage timings (seconds): extract 0.05, transform 0.86, create schema 0.32, load 5.39, reconcile 0.19

@@ -80,3 +80,22 @@ Python, pandas, SQL, MySQL, SQLAlchemy
 
 
 Date handling: Dates arrive in three formats. parse_dates matches each value to a format by pattern and parses it with that explicit format, never auto-detecting. Slash dates are MM/DD/YYYY, verified during profiling. Values matching no format are rejected as BAD_DATE with the original text logged.
+
+
+### Result in MySQL
+
+Cleaned customers loaded into MySQL (standardized province, status, postal code, real dates, true NULLs for missing emails):
+
+```sql
+SELECT * FROM utility_billing.customers LIMIT 5;
+```
+
+![Clean customers table](docs/mysql_customers.png)
+
+Bills loaded (9,820 of 10,000 source rows; the rest are logged as rejects):
+
+```sql
+SELECT COUNT(*) FROM utility_billing.bills;
+```
+
+![Bills loaded](docs/mysql_bills_count.png)
